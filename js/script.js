@@ -46,7 +46,13 @@ var quotes = [
  * `getRandomQuote` function
 ***/
 
+function getRandomQuote() {
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  randomQuote = quotes[randomNumber];
+  return randomQuote;
+};
 
+console.log(getRandomQuote());
 
 /***
  * `printQuote` function
@@ -59,4 +65,4 @@ var quotes = [
  * DO NOT CHANGE THE OF CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// document.getElementById('load-quote').addEventListener("click", printQuote, false);
