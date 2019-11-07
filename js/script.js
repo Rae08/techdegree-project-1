@@ -69,8 +69,8 @@ function printQuote() {
   document.body.style.backgroundColor = background;
 }
 
-
-printQuote();
+// sets the page to display a new quote every 10 seconds
+var timer = setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
