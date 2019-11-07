@@ -28,6 +28,10 @@ var quotes = [
   }
 ];
 
+// Array of colours
+
+var colours = ["#173f5f", "#20639B", "#3CAEA3", "#F6D55C", "#ED553B"]
+
 // getRandomQuote returns a quote at random from the quotes array. Returns an object.
 function getRandomQuote() {
   var randomNumber = Math.floor(Math.random() * quotes.length);
@@ -35,25 +39,36 @@ function getRandomQuote() {
   return randomQuote;
 };
 
+// getRandomColour returns a colour at random from the colours array. Returns a string.
+function getRandomColour() {
+  var randomColour = Math.floor(Math.random() * colours.length);
+  randomColour = colours[randomColour];
+  return randomColour;
+};
+
 // printQuote uses getRandomQuote to get a random quote object, and then creates html based on the object properties to print the quote to the page
 function printQuote() {
   selectQuote = getRandomQuote();
-  // var html = '';
   var html = '<p class="quote">' + selectQuote.quote + '</p>';  
   html += '<p class="source">' + selectQuote.source;
 
-  // citation is an option property so this checks to see if it exists. 
+  // citation is an optional property so this checks to see if it exists. 
   if (selectQuote.citation) {
     html += '<span class="citation">' + selectQuote.citation + '</span>';
   }
 
-  // year is an option property so this checks to see if it exists. 
+  // year is an optional property so this checks to see if it exists. 
   if (selectQuote.year) {
     html += '<span class="citation">' + selectQuote.year + '</span>';
   }
   html += '</p>'
   document.getElementById('quote-box').innerHTML = html;
+
+  // updates the background colour to a random colour when a new quote is generated
+  background = getRandomColour();
+  document.body.style.backgroundColor = background;
 }
+
 
 printQuote();
 
