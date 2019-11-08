@@ -3,22 +3,27 @@ var quotes = [
   {
     quote: 'It does not do to dwell on dreams and forget to live',
     source: 'Albus Dumbledore',
-    citation: 'Sorcerer’s Stone'
+    citation: 'Sorcerer’s Stone',
+    category: 'Inspirational'
   },
   {
     quote: 'I am what I am an’ I’m not ashamed',
     source: 'Rubeus Hagrid',
     citation: 'Goblet of Fire',
+    category: 'Wisdom', 
   },
   {
     quote: 'Always',
     source: 'Severus Snape',
     citation: 'Deathly Hallows',
+    category: 'Heartbreaking'
   },
   {
     quote: 'Differences of habit and language are nothing at all if our aims are identical and our hearts are open',
     source: 'Albus Dumbledore',
-    citation: 'Goblet of Fire'
+    citation: 'Goblet of Fire',
+    category: 'Inspirational',
+    year: '2000'
   },
   {
     quote: 'Things we lose have a way of coming back to us in the end, if not always in the way we expect',
@@ -51,15 +56,14 @@ function printQuote() {
   selectQuote = getRandomQuote();
   var html = '<p class="quote">' + selectQuote.quote + '</p>';  
   html += '<p class="source">' + selectQuote.source;
-
-  // citation is an optional property so this checks to see if it exists. 
   if (selectQuote.citation) {
     html += '<span class="citation">' + selectQuote.citation + '</span>';
   }
-
-  // year is an optional property so this checks to see if it exists. 
   if (selectQuote.year) {
     html += '<span class="citation">' + selectQuote.year + '</span>';
+  }
+  if (selectQuote.category) {
+    html+= '<span class="citation">' + selectQuote.category + '</span>'
   }
   html += '</p>'
   document.getElementById('quote-box').innerHTML = html;
